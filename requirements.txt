@@ -4,5 +4,7 @@ numpy
 pymongo
 certifi
 pymongo[srv]==4.7
+dill
+pyaml
 
--e .
+#-e .
