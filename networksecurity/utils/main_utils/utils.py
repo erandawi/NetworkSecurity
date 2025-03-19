@@ -51,38 +51,38 @@ def save_object(file_path: str, obj: object) -> None:
     except Exception as e:
         raise NetworkSecurityException(e, sys) from e
     
-def load_object(file_path: str) -> object:
-    try:
-        # Check if the file exists and is not empty
-        if not os.path.exists(file_path):
-            raise Exception(f"The file: {file_path} does not exist.")
-        
-        if os.path.getsize(file_path) == 0:
-            raise Exception(f"The file: {file_path} is empty.")
-
-        # Log the file path and size for debugging
-        print(f"Loading object from: {file_path}")
-        print(f"File size: {os.path.getsize(file_path)} bytes")
-
-        # Open and load the pickle object
-        with open(file_path, "rb") as file_obj:
-            obj = np.load(file_obj)
-
-        print(f"Object loaded successfully: {type(obj)}")
-        return obj
-
-    except Exception as e:
-        print(f"Error during object loading: {e}")
-        raise NetworkSecurityException(e, sys) from e  
-# def load_object(file_path: str, ) -> object:
+# def load_object(file_path: str) -> object:
 #     try:
+#         # Check if the file exists and is not empty
 #         if not os.path.exists(file_path):
-#             raise Exception(f"The file: {file_path} is not exists")
+#             raise Exception(f"The file: {file_path} does not exist.")
+        
+#         if os.path.getsize(file_path) == 0:
+#             raise Exception(f"The file: {file_path} is empty.")
+
+#         # Log the file path and size for debugging
+#         print(f"Loading object from: {file_path}")
+#         print(f"File size: {os.path.getsize(file_path)} bytes")
+
+#         # Open and load the pickle object
 #         with open(file_path, "rb") as file_obj:
-#             print(file_obj)
-#             return pickle.load(file_obj)
+#             obj = np.load(file_obj)
+
+#         print(f"Object loaded successfully: {type(obj)}")
+#         return obj
+
 #     except Exception as e:
-#         raise NetworkSecurityException(e, sys) from e
+#         print(f"Error during object loading: {e}")
+#         raise NetworkSecurityException(e, sys) from e  
+def load_object(file_path: str, ) -> object:
+    try:
+        if not os.path.exists(file_path):
+            raise Exception(f"The file: {file_path} is not exists")
+        with open(file_path, "rb") as file_obj:
+            print(file_obj)
+            return np.load(file_obj)
+    except Exception as e:
+        raise NetworkSecurityException(e, sys) from e
     
 def load_numpy_array_data(file_path: str) -> np.array:
     """
