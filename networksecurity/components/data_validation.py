@@ -1,4 +1,4 @@
-from networksecurity.enitiy.artifact_enitiy import DataIngestionArtifact, DataValidationArtifact
+from networksecurity.enitiy.artifact_entity import DataIngestionArtifact, DataValidationArtifact
 from networksecurity.enitiy.config_entity import DataValidationConfig
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.constant.training_pipeline import SCHEMA_FILE_PATH

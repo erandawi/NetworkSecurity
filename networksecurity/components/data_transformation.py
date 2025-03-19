@@ -8,7 +8,7 @@ from sklearn.pipeline import Pipeline
 from networksecurity.constant.training_pipeline import TARGET_COLUMN
 from networksecurity.constant.training_pipeline import DATA_TRANSFORMATION_IMPUTER_PARAMS
 
-from networksecurity.enitiy.artifact_enitiy import (
+from networksecurity.enitiy.artifact_entity import (
     DataTransformationArtifact, 
     DataValidationArtifact
 )
@@ -16,7 +16,7 @@ from networksecurity.enitiy.artifact_enitiy import (
 from networksecurity.enitiy.config_entity import DataTransformationConfig
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
-from networksecurity.utils.main_utils.utils import save_numpy_array_data, save_objects
+from networksecurity.utils.main_utils.utils import save_numpy_array_data, save_object
 
 class DataTransformation:
     def __init__ (self, data_validation_artifact: DataValidationArtifact,
@@ -88,7 +88,7 @@ class DataTransformation:
             # save numpy array data
             save_numpy_array_data(self.data_transformation_config.transformed_train_file_path, array=train_arr)
             save_numpy_array_data(self.data_transformation_config.transformed_test_file_path, array=test_arr)  
-            save_objects(self.data_transformation_config.transformed_object_file_path, preprocessor_object,)
+            save_object(self.data_transformation_config.transformed_object_file_path, preprocessor_object,)
             
             # preparing artifacts
             

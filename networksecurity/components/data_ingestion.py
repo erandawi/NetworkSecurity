@@ -5,7 +5,7 @@ import pandas as pd
 
 ## configuration of the Data Ingestion Config
 from networksecurity.enitiy.config_entity import DataIngestionConfig
-from networksecurity.enitiy.artifact_enitiy import DataIngestionArtifact
+from networksecurity.enitiy.artifact_entity  import DataIngestionArtifact
 
 import os
 import sys
@@ -79,7 +79,7 @@ class DataIngestion:
             )
             
             test_set.to_csv(
-                self.data_ingestion_config.test_file_path, index=False, header = True
+                self.data_ingestion_config.testing_file_path, index=False, header = True
             )
             logging.info(f"Exported train and test file path.")
         
@@ -94,7 +94,7 @@ class DataIngestion:
             self.split_data_as_train_test(dataframe)
             
             dataingestionartifact = DataIngestionArtifact(trained_file_path=self.data_ingestion_config.training_file_path,
-                                                        test_file_path=self.data_ingestion_config.test_file_path)
+                                                        test_file_path=self.data_ingestion_config.testing_file_path)
             return dataingestionartifact
             
         except Exception as e:
