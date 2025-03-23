@@ -80,7 +80,7 @@ def load_object(file_path: str, ) -> object:
             raise Exception(f"The file: {file_path} is not exists")
         with open(file_path, "rb") as file_obj:
             print(file_obj)
-            return np.load(file_obj)
+            return np.load(file_obj,allow_pickle=True)
     except Exception as e:
         raise NetworkSecurityException(e, sys) from e
     
